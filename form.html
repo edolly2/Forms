@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form-styles.css" />
+    <title>Form Component</title>
+  </head>
+  <body>
+    <!-- FORM HEADER -->
+    <header class="form-header">
+      <h1>Personal Profile</h1>
+      <p><em>Update your profile so others get to know you better</em></p>
+    </header>
+
+    <!-- FORM CONTAINER (FORM) -->
+    <form class="form-container">
+      <!-- FORM SECTION (NAME) -->
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <!-- FORM SECTION (EMAIL) -->
+      <div class="form-control">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="example@email.com"
+        />
+      </div>
+      <!-- FORM SECTION (RADIO) -->
+      <fieldset class="radio-form-control">
+        <legend>Allow push notifications?</legend>
+        <!-- RADIO BUTTON (NO) -->
+        <input
+          type="radio"
+          name="push-type"
+          id="push-type-no"
+          value="no"
+          checked
+        />
+        <label for="push-type-no" class="radio-label">No</label>
+        <!-- RADIO BUTTON (YES) -->
+        <input type="radio" name="push-type" id="push-type-yes" value="yes" />
+        <label for="push-type-yes" class="radio-label">Yes</label>
+      </fieldset>
+
+      <!-- FORM SECTION (DROPDOWN) -->
+      <div class="form-control">
+        <label for="color">Pick a profile color</label>
+        <select name="color" id="color">
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="red">Red</option>
+          <option value="yellow">Yellow</option>
+        </select>
+      </div>
+
+      <!-- FORM SECTION (TEXTAREA) -->
+      <div class="form-control">
+        <label for="description">Your profile description</label>
+        <textarea name="description" id="description"></textarea>
+        <div class="description">
+          Describe yourself here - your hobbies and interests
+        </div>
+      </div>
+
+      <!-- FORM SECTION (CHECKBOX) -->
+      <div class="form-control">
+        <label for="isHappy" class="checkbox-label">
+          <input type="checkbox" name="isHappy" id="isHappy" value="happy" />
+          <span>I am generally a happy person</span>
+        </label>
+      </div>
+
+      <!-- FORM SECTION (SUBMIT BUTTON) -->
+      <div class="form-control">
+        <button>Update</button>
+      </div>
+    </form>
+    <script>
+      // Standard window object to grab URL query string
+      let queryString = window.location.search;
+
+      // URLSearchParams API
+      let urlParams = new URLSearchParams(queryString);
+
+      // Grab name variable via GET
+      let fullName = urlParams.get('name').toUpperCase();
+
+      // Make form title dynamic
+      let headingTag = document.getElementsByTagName('h1')[0];
+      headingTag.innerHTML = `${fullName}'s Profile`;
+    </script>
+  </body>
+</html>
