@@ -139,7 +139,7 @@ body {
 
 /* **************** SUBMIT BUTTON STYLING **************** */
 
-.form-control button {
+.form-btn {
   font-size: 1em;
   font-weight: bold;
   color: #fff;
@@ -151,7 +151,7 @@ body {
   margin-left: var(--label-width);
 }
 
-.form-control button:hover {
+.form-btn:hover {
   background-color: rgb(255, 30, 30);
 
 }
